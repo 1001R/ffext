@@ -4,19 +4,20 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <div><button>1</button></div>
-    <div><button>2</button></div>
-    <div><button>3</button></div>
-    <div><button>4</button></div>
-    <div><button>5</button></div>
+    <div><button data-accid="111111111111">1</button></div>
+    <div><button data-accid="222222222222">2</button></div>
+    <div><button data-accid="333333333333">3</button></div>
+    <div><button data-accid="444444444444">4</button></div>
+    <div><button data-accid="555555555555">5</button></div>
     <script>
       function onClick(event) {
         const btn = document.createElement('button')
-        btn.innerText = 'Send message'
+        btn.innerText = this.dataset.accid
+        btn.dataset.accid = this.dataset.accid
         this.parentElement.appendChild(btn)
         this.disabled = true
       }
-      document.querySelectorAll('button').forEach(e => {
+      document.querySelectorAll('button').forEach((e, i) => {
         e.addEventListener('click', onClick)
       })
     </script>
